@@ -69,6 +69,48 @@ fimg[3].onclick = function(){
 }
 
 
+
+/**
+   * Scroll top button *
+**/
+let scrollTop = document.querySelector('.scroll-top');
+
+function toggleScrollTop() {
+  if (scrollTop) {
+    window.scrollY > 360 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+  }
+}
+scrollTop.addEventListener('click', (e) => {
+  e.preventDefault();
+  window.scrollTo({
+    top: 95,
+    behavior: 'smooth'
+  });
+});
+
+window.addEventListener('load', toggleScrollTop);
+document.addEventListener('scroll', toggleScrollTop);
+
+
+/** Close Navbar */
+const bar = document.getElementById('bar');
+const nav = document.getElementById('navbar');
+const close = document.getElementById('close');
+
+if (bar) {
+    bar.addEventListener('click',()=>{
+        nav.classList.add('active');
+    })
+}
+
+if (close) {
+    close.addEventListener('click',()=>{
+        nav.classList.remove('active');
+    })
+}
+
+
+
 /*Change Cpoyright Year*/
 const d = new Date();
 let year = d.getFullYear();
